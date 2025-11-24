@@ -10,7 +10,6 @@ class AlunoRepository {
     }
 
     static async findById(id) {
-        // findOne porque seu ID é um UUID, não o _id do Mongo
         return await Aluno.findOne({ id: id });
     }
 
@@ -23,7 +22,6 @@ class AlunoRepository {
     }
 
     static async update(id, dadosAtualizados) {
-        // new: true retorna o objeto atualizado
         return await Aluno.findOneAndUpdate({ id: id }, dadosAtualizados, { new: true });
     }
 

@@ -9,14 +9,12 @@ const JWT_SECRET = process.env.JWT_SECRET || 'SUA_CHAVE_SECRETA_SUPER_SEGURA_AQU
 
 class AuthService {
     static async register(tipoUsuario, dadosUsuario) {
-        // Validação básica
         if (!dadosUsuario.email || !dadosUsuario.senha || !dadosUsuario.nome) {
             const erro = new Error("Nome, email e senha são obrigatórios.");
             erro.statusCode = 400;
             throw erro;
         };
 
-        // Verifica duplicidade em ambas as tabelas
         const alunoExistente = await AlunoRepository.findByEmail(dadosUsuario.email);
         const profExistente = await ProfessorRepository.findByEmail(dadosUsuario.email);
 
@@ -26,7 +24,6 @@ class AuthService {
             throw error;
         };
 
-        // Hash da senha
         const salt = await bcrypt.genSalt(10);
         const senhaCriptografada = await bcrypt.hash(dadosUsuario.senha, salt);
 
@@ -48,7 +45,6 @@ class AuthService {
             await ProfessorRepository.create(novoUsuario);
         }
 
-        // Gera Token
         const payload = { id: novoUsuario.id, email: novoUsuario.email, role: tipoUsuario };
         const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '1h' });
 

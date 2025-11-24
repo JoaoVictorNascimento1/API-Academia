@@ -4,7 +4,7 @@ import alunoRoutes from './src/routes/aluno.routes.js';
 import professoresRoutes from './src/routes/professor.routes.js';
 import treinoRoutes from './src/routes/treino.routes.js';
 import { globalErrorHandler } from './src/middlewares/error.middleware.js';
-import { connectDB } from './src/database/config.js'; // Importar conexão
+import { connectDB } from './src/database/config.js';
 
 const app = express();
 const PORTA = process.env.PORTA || 3000; 
@@ -22,9 +22,8 @@ app.use('/api/treinos', treinoRoutes);
 
 app.use(globalErrorHandler);
 
-// Inicialização Assíncrona
 async function startServer() {
-    await connectDB(); // Conecta primeiro
+    await connectDB();
     app.listen(PORTA, () => {
         console.log(`Servidor rodando na porta: ${PORTA}`);
     });

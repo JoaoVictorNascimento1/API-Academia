@@ -20,7 +20,6 @@ class AlunoService {
     }
 
     static async updateMeuPerfil(id, dados) {
-        // Remove campos proibidos
         const { role, id: _id, senha, professorId, ...dadosPermitidos } = dados;
         const atualizado = await AlunoRepository.update(id, dadosPermitidos);
         if (!atualizado) {
@@ -32,7 +31,7 @@ class AlunoService {
     }
 
     static async deleteMinhaConta(id) {
-        await TreinoRepository.deleteByAlunoId(id); // Cascade delete
+        await TreinoRepository.deleteByAlunoId(id);
         const sucesso = await AlunoRepository.delete(id);
         if (!sucesso) {
             const erro = new Error('Aluno não encontrado.');
