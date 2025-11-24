@@ -1,6 +1,4 @@
 /*
-//JWolA3kLl5yoaH5g
-//mongodb+srv://usuario-acad:JWolA3kLl5yoaH5g@cluster0-acad.8o8pidx.mongodb.net/?appName=Cluster0-acad
 
 import { Low } from 'lowdb';
 import { JSONFile } from 'lowdb/node';
