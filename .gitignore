@@ -7,6 +7,7 @@ package-lock.json
 .env.local
 
 src/database/db.json
+src/database/config.backup.js
 
 npm-debug.log*
 yarn-debug.log*
