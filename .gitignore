@@ -1,0 +1,42 @@
+# --- Dependências ---
+node_modules/
+package-lock.json 
+# Opcional: Algumas equipes gostam de comitar, outras não. Para projetos pessoais, pode deixar sem o # para comitar e garantir versões exatas.
+
+# --- Variáveis de Ambiente e Segredos (MUITO IMPORTANTE) ---
+.env
+.env.test
+.env.production
+.env.local
+
+# --- Banco de Dados Local (Legado LowDB) ---
+# Ignora o arquivo JSON antigo para não subir dados de teste
+src/database/db.json
+
+# --- Logs de Sistema e Debug ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs
+*.log
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# --- Arquivos de Sistema Operacional (Windows/Mac/Linux) ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Configurações de IDE/Editor (VS Code, etc) ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Pastas de Build (Se for usar TypeScript ou build no futuro) ---
+dist/
+build/
+coverage/

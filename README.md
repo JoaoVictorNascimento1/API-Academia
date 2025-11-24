@@ -1,0 +1,1 @@
+npm install express jsonwebtoken bcrypt express-validator lowdb mongodb dotenv mongoose
